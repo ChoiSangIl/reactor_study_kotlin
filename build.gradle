@@ -1,10 +1,18 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.8.20'
     id 'application'
+    id "io.spring.dependency-management" version "1.0.7.RELEASE"
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "io.projectreactor:reactor-bom:2022.0.10"
+    }
 }
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
+
 
 repositories {
     mavenCentral()
@@ -12,6 +20,8 @@ repositories {
 
 dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    implementation 'io.projectreactor:reactor-core'
+    implementation platform('io.projectreactor:reactor-bom:2022.0.10')
 }
 
 test {
