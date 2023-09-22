@@ -1,6 +1,6 @@
-import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 
 
 /**
@@ -8,7 +8,6 @@ import reactor.core.publisher.Flux
  */
 class BlogTechIo{
     @Test
-    @DisplayName("결과 값은 무엇일까??")
     fun chapter1() {
         val flux = Flux.just("A")
         flux.map { s: String -> "foo$s" }
@@ -17,6 +16,21 @@ class BlogTechIo{
         Flux.just("A")
             .map { s: String -> "foo$s" }
             .subscribe { x: String? -> println(x) }
+
+        Mono.just("A")
+            .map { s: String -> "foo$s" }
+            .subscribe { x: String? -> println(x) }
+
+        Flux.just("A","B", "C")
+            .map { s: String -> "foo$s" }
+            .subscribe { x: String? -> println(x) }
+
+        /*
+        error
+        Mono.just("A", "B", "C")
+            .map { s: String -> "foo$s" }
+            .subscribe { x: String? -> println(x) }
+         */
     }
 }
 
