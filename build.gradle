@@ -22,6 +22,8 @@ dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     implementation 'io.projectreactor:reactor-core'
     implementation platform('io.projectreactor:reactor-bom:2022.0.10')
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-test-junit5
+    implementation("org.jetbrains.kotlin:kotlin-test-junit5:1.9.10")
 }
 
 test {
